@@ -20,6 +20,8 @@ const initialState = {
 
 const pathname = window.location.pathname
 
+console.log('hello world');
+
 class App extends Component {
   constructor(){
     super();
