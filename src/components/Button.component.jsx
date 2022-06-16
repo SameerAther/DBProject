@@ -3,9 +3,8 @@ import React from 'react';
 import '../App.css';
 
 export const Button = (props) => {
-    console.log(props.color);
     return (
-        <button className="btn" style={{backgorund: props.color}}
+        <button className={`btn ${props.class ? props.class : ""}`}
         type = {props.type}>
             {props.text}
         </button>

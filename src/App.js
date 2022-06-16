@@ -4,17 +4,16 @@ import {Routes, Route } from 'react-router-dom';
 import { SignUp } from './pages/SignUp.jsx';
 import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
-import { Header } from './components/Header.component.jsx';
 import './App.css';
 
 const initialState = {
-  route: 'sign',
-  isSignedIn: false,
   user: {
     id: '',
+    signedIn: false,
     name: '',
     email: '',
-    joined: ''
+    joined: '',
+    cart: '',
   }
 }
 
@@ -26,15 +25,7 @@ class App extends Component {
     this.state = initialState
   }
 
-  loadUser = (data) => {
-    this.setState({user: {
-      id: data.id,
-      name: data.name,
-      email: data.email,
-      joined: data.joined
-    }})
-  }
-
+ 
   onInputChange = (event) => {
     this.setState({input: event.target.value})
   }
@@ -51,7 +42,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Header/>
+        <Homepage user={this.state.user}/>
         {/* <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/signin' element={<SignIn/>}/>

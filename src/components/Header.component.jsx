@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../App.css';
 import { Button } from './Button.component.jsx';
+import { CartIcon } from './Cart.component.jsx';
 
 export const Header = (props) => {
   return (
@@ -25,11 +26,12 @@ export const Header = (props) => {
             <a href="/" className="link">About</a>
           </li>
         </ul>
-
-        <Button 
-        text="sign in"
-        color="red"
-        />
+        {
+          props.signedIn ? <CartIcon /> : <Button 
+          class="btn-header"
+          text="SIGN IN"
+          />
+        }
       </nav>
 
     </header>

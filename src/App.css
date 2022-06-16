@@ -1,15 +1,28 @@
+/* DANCING SCRIPT */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+
+/* ABEL */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
 .App {
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 /* Header */
 .header {
+  background-color: #f1f1f1;
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
-  padding: 0 50px;
+  padding: 0 80px;
+  background: transparent;
 }
 
 .navigation{
@@ -31,14 +44,21 @@
 
 .nav-links li a{
   text-decoration: none;
-  font-weight: bold;
+  font-family: 'Abel', sans-serif;
+  color: #fff;
+  font-size: 19px;
+  transition: opacity .25s ease;
+}
+.nav-links li a:hover{
+  border-bottom: 1px solid #fb5607;
+  opacity: 0.5
 }
 
 .btn{
-  background-color: #ebf5ea;
+  background-color: blue;
   border: none;
   border-radius: 5px;
-  color: #000;
+  color: white;
   padding: 10px;
   text-align: center;
   text-decoration: none;
@@ -47,6 +67,34 @@
   margin: 4px 10px;
   cursor: pointer;
 }
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-header{
+  background-color: #fb5607;
+  color: #fff;
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.cart-icon{
+  color: #fff;
+}
+
+.btn-logout{
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+
 /*  */
 
 /* Particles Component */
@@ -61,31 +109,161 @@
 /*  */
 
 /* Home Page */
-.homepage{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+.landing-section{
+  position: relative;
   height: 100vh;
-  background: 
-    /* top, transparent red, faked with gradient */ 
-    linear-gradient(
-      rgba(0, 0, 0, 0.45), 
-      rgba(122, 0, 166, 0.131)
-    ),
-    /* bottom, image */
-    url('../assets/tamara-bellis-_DvfL5b7Xhk-unsplash.jpg');
+  width: 100%;
+  background: url('./assets/background.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
 }
 
-h1 {
-  flex: left;
-  margin-right: 27em;
-  margin-bottom: 5em;
-  text-align: left;
+.landing-text {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: 70px;
+  align-items: left;
+  justify-content: left;
 }
+
+.landing-text h1{
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.30;
+}
+
+.btn-main{
+  align-items: left;
+  justify-self: left;;
+}
+
+.highlight{
+  position: relative;
+  font-family: 'Dancing script', cursive;
+  margin-left: 10px;
+  font-size: 75px;
+  font-weight: 400;
+  color: #000;
+}
+.highlight::after{
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: -2.5%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    transform: scale(1.07, .98) skewX(-15deg);
+    background-color: #ffbe0b;
+}
+.f1{
+  transform: scale(1.07, .98) skewY(-20deg);
+  
+}
+
+/* Sliding Down Arrow Animation */
+.scroll-down{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.arrow_container {
+  width: 24px;
+  height: 24px;
+  margin: 0px auto;
+}
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #ffbe0b;
+}
+ 
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+ 
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+ 
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -30px;
+  border:none;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+a{
+  text-decoration: none;
+}
+
+@keyframes pulse { 
+  to {
+      opacity: 1;
+    }
+  }
+  @keyframes move {
+    25% {
+      opacity: 1;
+   
+    }
+    33% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+    67% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+    }
+  }
+/*  */
+
+
 /*  */
 
 /* SignIn and SignUp */
@@ -112,4 +290,29 @@ label {
 }
 /*  */
 
+/* Cart Icon */
+.cart-icon{
+  margin: 0 20px;
+  font-size: 25px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.cart-icon-container{
+  position: relative;
+}
+
+.cart-items-count{
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: red;
+  font-size: 10px;
+  color: white;
+  font-weight: 800;
+  padding: 2px 6px;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+}
 
