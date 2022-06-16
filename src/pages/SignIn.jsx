@@ -1,11 +1,11 @@
 import React from 'react';
-import './signinsignup.styles.css'
+import '../App.css'
 
 import {Link} from 'react-router-dom'
 
-import { ParticlesContainer } from '../../components/Particles/particles.component';
+import { ParticlesContainer } from '../components/Particles.component.jsx';
 
-class SignIn extends React.Component {
+export class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +63,7 @@ class SignIn extends React.Component {
                   <div className="">
                   <input className="br3 b ph4 pv2 input-reset ba b--black inputs grow pointer f5 dib" type="submit" value="Signin" onClick={this.onSubmitChange}/>
                   </div>
-                  <div classname="lh-copy mt5 created" style={{paddingTop: '1em'}}>
+                  <div className="lh-copy mt5 created" style={{paddingTop: '1em'}}>
                     <p>New to Bazaar? <Link to='/signup' className='f5 dim blue'>Create Account</Link></p>
                   </div>
               </div>
@@ -73,5 +73,3 @@ class SignIn extends React.Component {
     )
   }
 }
-
-export default SignIn;

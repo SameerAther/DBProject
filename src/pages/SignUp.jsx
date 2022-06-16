@@ -1,11 +1,11 @@
 import React from 'react';
-import '../Signin/signinsignup.styles.css';
+import '../App.css';
 
 import {Link} from 'react-router-dom'
 
-import { ParticlesContainer } from '../../components/Particles/particles.component';
+import { ParticlesContainer } from '../components/Particles.component.jsx';
 
-class Register extends React.Component {
+export class SignUp extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -78,7 +78,7 @@ render(){
                   <input className="br3 b ph4 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib inputs" type="submit" 
                   value="Register" onClick={this.onSubmitChange}/>
                   </div>
-                  <div classname="lh-copy mt3 created" style={{paddingTop: '1em'}}>
+                  <div className="lh-copy mt3 created" style={{paddingTop: '1em'}}>
                     <p>Already have an account? <Link to='/signin' className='f5 dim blue'>Sign In</Link></p>
                   </div>
               </div>
@@ -88,5 +88,3 @@ render(){
     )
   }
 }
-
-export default Register

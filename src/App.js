@@ -1,10 +1,10 @@
 import React , { Component } from 'react';
 import {Routes, Route } from 'react-router-dom';
 
-import SignUp from './pages/Signup/signup.component';
-import SignIn from './pages/Signin/signin.components';
-import Header from './components/header/header.component';
-import { Homepage } from './pages/Home/homepage.component';
+import { SignUp } from './pages/SignUp.jsx';
+import { SignIn } from './pages/SignIn.jsx';
+import { Homepage } from './pages/Home.jsx';
+import { Header } from './components/Header.component.jsx';
 import './App.css';
 
 const initialState = {
@@ -18,9 +18,7 @@ const initialState = {
   }
 }
 
-const pathname = window.location.pathname
-
-console.log('hello world');
+// const pathname = window.location.pathname
 
 class App extends Component {
   constructor(){
@@ -54,11 +52,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <Routes>
+        {/* <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/signin' element={<SignIn/>}/>
           <Route path='/signup' element={<SignUp/>} />
-        </Routes>
+        </Routes> */}
       </div>
     );
   }

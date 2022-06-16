@@ -1,5 +1,6 @@
 import React from 'react';
-import './homepage.styles.css'
+
+import '../App.css'
 
 export const Homepage = () => {
   return(

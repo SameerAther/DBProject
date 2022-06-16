@@ -1,12 +1,12 @@
 import React from 'react';
 import Particles from "react-tsparticles";
-import { Engine } from "tsparticles-engine";
+
+import '../App.css'
 import { loadLinksPreset } from "tsparticles-preset-links";
-import './particles.styles.css'
 
 export class ParticlesContainer extends React.PureComponent {
   // this customizes the component tsParticles installation
-  async customInit(engine: Engine): Promise<void> {
+  async customInit(engine) {
     // this adds the preset to tsParticles, you can safely use the
     await loadLinksPreset(engine);
   }

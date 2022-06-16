@@ -2,4 +2,114 @@
   text-align: center;
 }
 
+/* Header */
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0 50px;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-links li{
+  margin: 0 20px;
+}
+
+.nav-links li a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn{
+  background-color: #ebf5ea;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 10px;
+  cursor: pointer;
+}
+/*  */
+
+/* Particles Component */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+}
+/*  */
+
+/* Home Page */
+.homepage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(122, 0, 166, 0.131)
+    ),
+    /* bottom, image */
+    url('../assets/tamara-bellis-_DvfL5b7Xhk-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  flex: left;
+  margin-right: 27em;
+  margin-bottom: 5em;
+  text-align: left;
+}
+/*  */
+
+/* SignIn and SignUp */
+.inputs{
+  background-color:#f3eee8
+}
+
+.main-space{
+  background-color: #ebf5ea
+}
+
+label {
+  text-align: left;
+}
+
+.created{
+  display: flex;
+  justify-content:space-between;
+}
+
+#sign_up{
+  width: 85%;
+  margin-left: 1.5em; 
+}
+/*  */
+
 
