@@ -1,21 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
-      "signedIn": false,
-      "name": "Noor Ali",
-      "email": "nooralib180@gmail.com",
-      "password": "noorali",
-      "joined": "2022-01-01T00:00:00.000Z",
-      "cart": []
-    },
-    {
-      "id": 2,
-      "signedIn": false,
-      "name": "Gulam Ali",
-      "email": "nooralia182@gmail.com",
+      "id": 495686,
+      "name": "gulam",
+      "email": "gulam@gmail.com",
       "password": "gulamali",
-      "joined": "2022-01-01T00:00:00.000Z",
+      "joined": "2022-06-19T06:56:22.799Z",
+      "signedIn": true,
       "cart": []
     }
   ],

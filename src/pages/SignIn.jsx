@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css'
 
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 
 import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx'
@@ -28,12 +28,13 @@ export class SignIn extends React.Component {
     e.preventDefault();
     this.props.onSubmit(this.state.emailC, this.state.passwordC);
     this.setState({emailC:"", passwordC: ""});
+    <Navigate to="/" replace={true}/>
   }
 
   render(){
     return(
         <div>
-          <ParticlesContainer style={{backgroundColor: "blue"}}/>
+          {/* <ParticlesContainer /> */}
           <div className="form-container">
             <form className="form">
               <h1>SIGN IN</h1>
@@ -60,6 +61,10 @@ export class SignIn extends React.Component {
               text={`sign in`.toUpperCase()}
               onSubmit={this.submit}/>
             </form>
+            <p>Don't have an account? <Link to="/signup">{"sign_up".toUpperCase()}</Link> here</p>
+            {
+              this.props.user.signedIn && <Navigate to="/" replace/>
+            }
           </div>
         </div>
     )

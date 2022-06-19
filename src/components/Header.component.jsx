@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 
 import '../App.css';
@@ -17,21 +17,22 @@ export const Header = (props) => {
       <nav className='navigation'>
         <ul className="nav-links">
           <li>
-            <a href="/" className="link">Home</a>
+            <Link to="/" className="link">Home</Link>
           </li>
           <li>
-            <a href="/" className="link">Products</a>
+            <a href="/products" className="link">Products</a>
           </li>
           <li>
-            <a href="/" className="link">About</a>
+            <a href="/about" className="link">About</a>
           </li>
         </ul>
         {
-          props.signedIn ? <CartIcon /> : <Button 
-          class="btn-header"
-          text="SIGN IN"
-          />
-        }
+          props.signedIn ? <CartIcon /> : <Link to="/signin">
+            <Button 
+            class="btn-header" 
+            text="SIGN IN"/>
+          </Link>
+        } 
       </nav>
 
     </header>

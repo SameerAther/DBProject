@@ -340,12 +340,19 @@ label {
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, .2);
+  background-color: rgba(255, 255, 255, .45);
   border-radius: 30px;
-  padding: 75px 180px;
+  padding: 75px 160px;
   
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(15px); */
+}
+
+.form-container p{
+  width: 100%;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 .form-container h1{
@@ -360,7 +367,7 @@ label {
 .form{
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: 18rem;
 }
 
 .form .input-container{
@@ -386,7 +393,7 @@ label {
   outline: none;
 }
 
-.pass-msg{
+.pass-msg p{
   color: red;
   font-size: 13px;
   text-align: left;
