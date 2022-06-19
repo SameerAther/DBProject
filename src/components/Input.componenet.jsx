@@ -4,9 +4,10 @@ import '../App.css';
 
 export const Input = (props) => {
     return (
-        <input className = "input"
+        <input className = {`input ${props.class ?`${props.class}`:''}`}
         type={props.type} 
         placeholder={props.placeholder}
-        value={props.value}/>
+        value={props.value}
+        onChange = {props.onChange}/>
     )
 }

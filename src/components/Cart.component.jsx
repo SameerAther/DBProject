@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsCart4 } from 'react-icons/bs';
-import { BsArrowRightShort } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 
 import '../App.css';
 
@@ -19,9 +19,9 @@ export const CartIcon = (props) => {
                 /> 
                 <div className="cart-items-count">1</div>
             </div>
-            <BsArrowRightShort 
-            title = "logout"
-            className = "btn-logout"/>
+            <CgProfile 
+            title = "my profile"
+            className = "show-profile"/>
         </>
     );
 }
