@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import '../App.css'
-import backgroundVideo from '../assets/video.mp4';
+import '../App.css';
+
 import { Button } from '../components/Button.component';
 import { Header } from '../components/Header.component.jsx'
 
@@ -12,13 +13,13 @@ export const Homepage = (props) => {
         <Header signedIn={props.user.signedIn} />
 
         <div className="landing-text">
-          <h1>Its not about <span className="highlight f1">Fashion</span><br></br>Its about <span className="highlight">Personality</span></h1>
+          <h1>Its not about <span className="highlight f1">Fashion</span><br></br> Its about <span className="highlight">Personality</span></h1>
 
           <Button
             class="btn-main"
-            text="start shopping" />
+            text="start shopping"/>
         </div>
-        
+          
         <div className="scroll-down">
           <div className="arrow_container">
             <a href="#toscroll">
@@ -29,7 +30,6 @@ export const Homepage = (props) => {
             </a>
           </div>
         </div>
-
       </div>
     </div>
   )
