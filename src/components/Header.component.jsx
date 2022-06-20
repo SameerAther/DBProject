@@ -8,7 +8,7 @@ import { CartIcon } from './Cart.component.jsx';
 
 export const Header = (props) => {
   return (
-    <header className={window.location.href === 'http://localhost:3000/' ? "header" : "header-other"}>
+    <header className="header">
       
       <div className='logo-container'>
         <img src='./logo512.png' alt='logo' className='logo' />

@@ -3,7 +3,6 @@ import '../App.css';
 
 import {Link, Navigate} from 'react-router-dom'
 
-import { Header } from '../components/Header.component';
 import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx';
 import { Button } from '../components/Button.component.jsx';
@@ -41,7 +40,6 @@ export class SignUp extends React.Component {
 render(){
     return(
       <div>
-        <Header/>
         {/* <ParticlesContainer/> */}
         <div className="form-container">
             <form className="form">
