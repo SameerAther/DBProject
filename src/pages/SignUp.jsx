@@ -66,7 +66,8 @@ render(){
                 type="password" 
                 placeholder="Enter your password"
                 onChange={this.onPasswordChange}
-                class="signup-input-password"/>
+                class="signup-input-password"
+               />
                 <div className="pass-msg"><p>{this.state.password.length < 6 ? "*password must be greater than 6 characters" : ""}</p></div>
               </div>
               <Button

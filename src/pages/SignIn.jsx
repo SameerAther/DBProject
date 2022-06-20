@@ -6,6 +6,7 @@ import {Link, Navigate} from 'react-router-dom'
 import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx'
 import { Button } from '../components/Button.component.jsx';
+
 export class SignIn extends React.Component {
   constructor(props) {
     super(props);
