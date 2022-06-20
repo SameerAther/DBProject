@@ -4,6 +4,7 @@ import {Routes, Route } from 'react-router-dom';
 import { SignUp } from './pages/SignUp.jsx';
 import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
+import { Products } from './pages/Products.jsx';
 import './App.css';
 
 // const pathname = window.location.pathname
@@ -132,14 +133,20 @@ class App extends Component {
     return (
       <div className="App">
         <Routes>
+
           <Route exact path="/" element={<Homepage 
           user={this.state.user}/>}/>
+
           <Route path="/signin" element={<SignIn 
           onSubmit = {this.onSubmitSignIn} 
           user={this.state.user}/>}/>
+
           <Route path ="/signup" element={<SignUp 
           onSubmit = {this.onSubmitSignUp} 
           user={this.state.user}/>}/>
+
+          <Route path="/products" element={<Products user={this.state.user}/>}/>
+
         </Routes>
         {/* <Routes>
           <Route exact path='/' element={<Homepage user={this.state.user}/>}/>
