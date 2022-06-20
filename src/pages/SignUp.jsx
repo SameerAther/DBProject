@@ -3,6 +3,7 @@ import '../App.css';
 
 import {Link, Navigate} from 'react-router-dom'
 
+import { Header } from '../components/Header.component';
 import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx';
 import { Button } from '../components/Button.component.jsx';
@@ -40,6 +41,7 @@ export class SignUp extends React.Component {
 render(){
     return(
       <div>
+        <Header/>
         {/* <ParticlesContainer/> */}
         <div className="form-container">
             <form className="form">
@@ -66,7 +68,8 @@ render(){
                 type="password" 
                 placeholder="Enter your password"
                 onChange={this.onPasswordChange}
-                class="signup-input-password"/>
+                class="signup-input-password"
+               />
                 <div className="pass-msg"><p>{this.state.password.length < 6 ? "*password must be greater than 6 characters" : ""}</p></div>
               </div>
               <Button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import '../App.css';
@@ -8,7 +8,7 @@ import { CartIcon } from './Cart.component.jsx';
 
 export const Header = (props) => {
   return (
-    <header className="header">
+    <header className={window.location.href === 'http://localhost:3000/' ? "header" : "header-other"}>
       
       <div className='logo-container'>
         <img src='./logo512.png' alt='logo' className='logo' />
@@ -20,7 +20,7 @@ export const Header = (props) => {
             <Link to="/" className="link">Home</Link>
           </li>
           <li>
-            <a href="/products" className="link">Products</a>
+            <a href="/shop" className="link">Products</a>
           </li>
           <li>
             <a href="/about" className="link">About</a>

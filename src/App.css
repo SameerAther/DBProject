@@ -28,6 +28,15 @@
   background: transparent;
 }
 
+.header-other{
+  background-color: rgb(66, 63, 63);
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+
 .navigation{
   display: flex;
   justify-content: space-between;

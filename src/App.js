@@ -4,6 +4,7 @@ import {Routes, Route } from 'react-router-dom';
 import { SignUp } from './pages/SignUp.jsx';
 import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
+import Shop from './pages/Shop.jsx';
 import './App.css';
 
 // const pathname = window.location.pathname
@@ -140,6 +141,7 @@ class App extends Component {
           <Route path ="/signup" element={<SignUp 
           onSubmit = {this.onSubmitSignUp} 
           user={this.state.user}/>}/>
+          <Route path='/shop' element={<Shop/>}/>
         </Routes>
         {/* <Routes>
           <Route exact path='/' element={<Homepage user={this.state.user}/>}/>
