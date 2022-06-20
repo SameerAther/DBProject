@@ -20,6 +20,7 @@ export const Header = (props) => {
             <Link to="/" className="link">Home</Link>
           </li>
           <li>
+            <Link to="/products" className="link">Products</Link>
             <a href="/shop" className="link">Products</a>
           </li>
           <li>
