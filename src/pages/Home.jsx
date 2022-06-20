@@ -15,9 +15,7 @@ export const Homepage = (props) => {
         <div className="landing-text">
           <h1>Its not about <span className="highlight f1">Fashion</span><br></br> Its about <span className="highlight">Personality</span></h1>
 
-          <Button
-            class="btn-main"
-            text="start shopping"/>
+          <Link to='/shop' class="btn-main">Start Shopping</Link>
         </div>
           
         <div className="scroll-down">
