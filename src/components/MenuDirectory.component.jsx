@@ -7,6 +7,7 @@ import { MenuItem } from './MenuItem.component.jsx'
 const handleClick = (e) => {
     const route = e.target.closest('.menu-item').id;
     <Link to={route} replace/>
+    console.log('hello world');
 }
 
 export const MenuDirectory = (props) => {
@@ -32,4 +33,4 @@ export const MenuDirectory = (props) => {
     )
 }
 
-"hellow "
+
