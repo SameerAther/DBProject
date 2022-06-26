@@ -1,20 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../App.css';
 
 import { Button } from '../components/Button.component';
-import { Header } from '../components/Header.component.jsx'
+import { Header } from '../components/Header.component.jsx';
+
 
 export const Homepage = (props) => {
+  
   return (
     <div className="homepage">
       <div className="landing-section">
-        <Header signedIn={props.user.signedIn} />
-
+        {/* <Header signedIn={props.user.signedIn} /> */}
         <div className="landing-text">
           <h1>Its not about <span className="highlight f1">Fashion</span><br></br> Its about <span className="highlight">Personality</span></h1>
 
-          <Link to='/shop' class="btn-main">Start Shopping</Link>
+          <Link to='/products' className="btn-main">Start Shopping</Link>
         </div>
           
         <div className="scroll-down">

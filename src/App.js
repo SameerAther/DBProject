@@ -1,23 +1,28 @@
 import React , { Component } from 'react';
 import {Routes, Route } from 'react-router-dom';
 
+import { Header } from './components/Header.component.jsx';
 import { SignUp } from './pages/SignUp.jsx';
 import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
 import { Products } from './pages/Products.jsx';
 import './App.css';
+import { BsTranslate } from 'react-icons/bs';
 
 // const pathname = window.location.pathname
 
 class App extends Component {
+  #menuItems = {};
+  #user = {};
+
   constructor(){
     super();
-
+    
     this.state = {
-      "user": {},
+      "user": this.#user,
+      "menuItems" : this.#menuItems,
     }
   }
-
  
   onInputChange = (event) => {
     this.setState({input: event.target.value})
@@ -50,7 +55,8 @@ class App extends Component {
 
     let user = {...userFound, signedIn: true};
 
-    this.setState({user: user});
+    this.#user = user;
+    this.setState({user: this.#user, menuItems: this.#menuItems});
 
     await fetch(`http://localhost:5000/users/${user.id}`,{
       method: 'PUT',
@@ -105,7 +111,9 @@ class App extends Component {
       cart: []
     }
 
-    this.setState({user: user});
+    this.#user = user;
+
+    this.setState({user: this.#user, menuItems: this.#menuItems});
 
     await fetch('http://localhost:5000/users',{
       method: 'POST',
@@ -127,32 +135,57 @@ class App extends Component {
   }
   ////////////////////////
 
-  //
+  // / FETCH PRODUCTS
+  fetchProducts = async () => {
+    const res = await fetch('http://localhost:5000/menuItems');
+    const data = await res.json();
+
+    return data;
+  }
+///////////////////
+
+componentDidMount(){
+  const setInitialState = async () => {
+      this.#menuItems = await this.fetchProducts();
+
+      this.setState({user: this.#user, menuItems: this.#menuItems});
+  }
+  setInitialState();
+
+}
+
+//
 
   render(){
     return (
       <div className="App">
-        <Routes>
+        <div className="sub">
 
-          <Route exact path="/" element={<Homepage 
-          user={this.state.user}/>}/>
+          <Header style={{transform: 'translateY(0)'}} signedIn={this.state.user.signedIn} />
 
-          <Route path="/signin" element={<SignIn 
-          onSubmit = {this.onSubmitSignIn} 
-          user={this.state.user}/>}/>
+          <Routes>
 
-          <Route path ="/signup" element={<SignUp 
-          onSubmit = {this.onSubmitSignUp} 
-          user={this.state.user}/>}/>
+            <Route exact path="/" element={<Homepage 
+            user={this.state.user}/>}/>
 
-          <Route path="/products" element={<Products user={this.state.user}/>}/>
+            <Route path="/signin" element={<SignIn 
+            onSubmit = {this.onSubmitSignIn} 
+            user={this.state.user}/>}/>
 
-        </Routes>
-        {/* <Routes>
-          <Route exact path='/' element={<Homepage user={this.state.user}/>}/>
-          <Route path='/signin' element={<SignIn/>}/>
-          <Route path='/signup' element={<SignUp/>} />
-        </Routes> */}
+            <Route path ="/signup" element={<SignUp 
+            onSubmit = {this.onSubmitSignUp} 
+            user={this.state.user}/>}/>
+
+            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>}/>
+
+          </Routes>
+          {/* <Routes>
+            <Route exact path='/' element={<Homepage user={this.state.user}/>}/>
+            <Route path='/signin' element={<SignIn/>}/>
+            <Route path='/signup' element={<SignUp/>} />
+          </Routes> */}
+        </div>
+
       </div>
     );
   }
