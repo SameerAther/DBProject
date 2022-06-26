@@ -1,7 +1,8 @@
 import React from 'react';
-import '../App.css'
-
 import {Link, Navigate} from 'react-router-dom'
+
+import '../App.css'
+import logo from '../assets/logo.svg';
 
 import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx'
@@ -32,11 +33,26 @@ export class SignIn extends React.Component {
     <Navigate to="/" replace={true}/>
   }
 
+  componentDidMount(){
+    const header = document.querySelector('.header');
+    header === undefined ? console.log('bad') : header.style.transform = 'translateY(-100%)';
+  }
+
   render(){
     return(
         <div>
           {/* <ParticlesContainer /> */}
           <div className="form-container">
+            <Link to='/' replace>
+              <img src={logo} alt='logo' className='signin-logo'
+              onClick={() => {
+                const header = document.querySelector('.header')
+                header === undefined ? console.log('bad') : header.style.transform = 'translateY(0%)';
+                header.classList.remove('sticky');
+                header.classList.add('header-home');
+              }}/>
+            </Link>
+
             <form className="form">
               <h1>SIGN IN</h1>
               <div className="input-container">
