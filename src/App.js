@@ -176,7 +176,7 @@ componentDidMount(){
             onSubmit = {this.onSubmitSignUp} 
             user={this.state.user}/>}/>
 
-            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>}/>
+            <Route path="/products/*" element={<Products menuItems = {this.state.menuItems}/>}/>
 
           </Routes>
           {/* <Routes>

@@ -2,13 +2,7 @@ import React from 'react';
 import {Link, Navigate} from 'react-router-dom';
 
 import '../App.css';
-import { MenuItem } from './MenuItem.component.jsx'
-
-const handleClick = (e) => {
-    const route = e.target.closest('.menu-item').id;
-    <Link to={route} replace/>
-    console.log('hello world');
-}
+import { MenuItem } from './MenuItem.component.jsx';
 
 export const MenuDirectory = (props) => {
     return(
@@ -24,7 +18,7 @@ export const MenuDirectory = (props) => {
                             imgUrl={menuItem.imageUrl}
                             size={menuItem.size}
                             route={menuItem.routeName}
-                            handleClick={handleClick}/>
+                            handleClick={props.handleClick}/>
                         )
                     })
                 }
