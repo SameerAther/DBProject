@@ -18,14 +18,18 @@ export const Products = (props) => {
         <div className="products-page">
             {/* <Header signedIn={this.props.user.signedIn}/> */}
             <Routes>
+                    
                 <Route exact path='/' element = {<MenuDirectory 
-                shopCategory = {props.menuItems} 
+                menuItems = {props.menuItems} 
                 handleClick={handleClick}/>} />
+                
                 <Route path='/products/:route' element = {<></>}/>
             </Routes>
+
             <ItemsPreview 
                 route={route}
                 menuItems={props.menuItems}/>
+            
         </div>
     )
 }
