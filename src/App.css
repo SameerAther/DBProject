@@ -447,6 +447,7 @@ a{
   background-position: center;
   position: relative;
   overflow: hidden;
+  color: black;
 }
 .menu-item.large{
   height: 380px;
@@ -468,7 +469,7 @@ a{
 }
 
 
-.menu-item:hover .background-image{
+.menu-item:hover .menu-item-image{
   transform: scale(1.1);
   transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link, Navigate} from 'react-router-dom';
 
 import '../App.css';
 import { MenuItem } from './MenuItem.component.jsx';
