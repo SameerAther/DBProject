@@ -9,7 +9,6 @@ import { Products } from './pages/Products.jsx';
 import { ItemsPreview } from './components/ItemsPreview.component.jsx';
 
 import './App.css';
-import { BsTranslate } from 'react-icons/bs';
 
 // const pathname = window.location.pathname
 
@@ -184,9 +183,9 @@ componentDidMount(){
             onSubmit = {this.onSubmitSignUp} 
             user={this.state.user}/>}/>
 
-            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>}/>
+            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>} />
 
-            <Route path="/products/:route" element={<ItemsPreview 
+            <Route path="/products/:route" element={<ItemsPreview
             menuItems={this.state.menuItems}/>}/>
 
           </Routes>

@@ -17,7 +17,7 @@ export const MenuDirectory = (props) => {
                             imgUrl={menuItem.imageUrl}
                             size={menuItem.size}
                             route={menuItem.routeName}
-                            handleClick={props.handleClick}/>
+                            />
                         )
                     })
                 }

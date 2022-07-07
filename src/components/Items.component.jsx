@@ -17,7 +17,7 @@ export const Items = (props) => {
                 />
             <div className="item-footer">
                 <span className="item-name">{props.name}</span>
-                <span className="item-price">{props.price}</span>
+                <span className="item-price">{`$${props.price}`}</span>
             </div>
         </div>
     );
