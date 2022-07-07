@@ -19,8 +19,9 @@ class App extends Component {
     super();
     
     this.state = {
-      "user": this.#user,
-      "menuItems" : this.#menuItems,
+      user: this.#user,
+      menuItems : [],
+      shopCategory: []
     }
   }
  
@@ -133,29 +134,19 @@ class App extends Component {
 
     return data;
   }
-  ////////////////////////
-
-  // / FETCH PRODUCTS
-  fetchProducts = async () => {
-    const res = await fetch('http://localhost:5000/menuItems');
-    const data = await res.json();
-
-    return data;
-  }
-///////////////////
-
-componentDidMount(){
-  const setInitialState = async () => {
-      this.#menuItems = await this.fetchProducts();
-
-      this.setState({user: this.#user, menuItems: this.#menuItems});
-  }
-  setInitialState();
-
+  componentDidMount() {
+    fetch("http://localhost:3006/menuitems")
+    .then((response) => response.json())
+    .then((responseJSON) => {
+       this.setState({menuItems: responseJSON})
+    })
+    fetch("http://localhost:3006/shopcategory")
+    .then((response) => response.json())
+    .then((responseJSON) => {
+       this.setState({shopCategory: responseJSON})
+    })
 }
-
 //
-
   render(){
     return (
       <div className="App">
@@ -176,7 +167,7 @@ componentDidMount(){
             onSubmit = {this.onSubmitSignUp} 
             user={this.state.user}/>}/>
 
-            <Route path="/products/*" element={<Products menuItems = {this.state.menuItems}/>}/>
+            <Route path="/products" element={<Products menuItems = {this.state.menuItems} shopCategory={this.state.shopCategory}/>}/>
 
           </Routes>
           {/* <Routes>
