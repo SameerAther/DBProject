@@ -4,9 +4,10 @@ import '../App.css';
 import { Items } from '../components/Items.component.jsx';
 
 export const ItemsPreview = (props) => {
-    console.log(window.location.pathname);
-    const [product] = props.menuItems.filter(menuItem => menuItem.routeName === props.route);
-    console.log(product);
+    const pathname = window.location.pathname;
+    const route = pathname.substring(pathname.lastIndexOf('/') + 1);
+    const [product] = props.menuItems.filter(menuItem => menuItem.routeName === route);
+
     return (
         <div className="items-preview">
             <h1 className="items-preview-heading">{product.title}</h1>
