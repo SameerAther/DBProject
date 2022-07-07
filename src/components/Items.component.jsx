@@ -8,15 +8,13 @@ export const Items = (props) => {
         <div className='item'>
             <div className="item-image"
             style={{backgroundImage: `url(${props.imageUrl})`}}
-            >
-                <Button 
+            ></div>
+            <Button 
                 class='add-to-cart-btn'
                 type='submit'
                 text={'add to cart'.toUpperCase()}
                 onSubmit={()=> console.log('added to cart')}
                 />
-
-            </div>
             <div className="item-footer">
                 <span className="item-name">{props.name}</span>
                 <span className="item-price">{props.price}</span>
