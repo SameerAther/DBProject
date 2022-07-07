@@ -6,6 +6,8 @@ import { SignUp } from './pages/SignUp.jsx';
 import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
 import { Products } from './pages/Products.jsx';
+import { ItemsPreview } from './components/ItemsPreview.component.jsx';
+
 import './App.css';
 import { BsTranslate } from 'react-icons/bs';
 
@@ -65,6 +67,8 @@ class App extends Component {
       },
       body: JSON.stringify(user),
     });
+    const header = document.querySelector('.header');
+    header === undefined ? console.log('bad') : header.style.transform = 'translateY(0%)';
   }
   /////////////////////////
 
@@ -122,6 +126,10 @@ class App extends Component {
       },
       body: JSON.stringify(user),
     });
+
+    const header = document.querySelector('.header');
+    header === undefined ? console.log('bad') : header.style.transform = 'translateY(0%)';
+
   }
   
   ////////////////////////
@@ -176,7 +184,10 @@ componentDidMount(){
             onSubmit = {this.onSubmitSignUp} 
             user={this.state.user}/>}/>
 
-            <Route path="/products/*" element={<Products menuItems = {this.state.menuItems}/>}/>
+            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>}/>
+
+            <Route path="/products/:route" element={<ItemsPreview 
+            menuItems={this.state.menuItems}/>}/>
 
           </Routes>
           {/* <Routes>

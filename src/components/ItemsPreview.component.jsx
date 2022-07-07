@@ -4,6 +4,7 @@ import '../App.css';
 import { Items } from '../components/Items.component.jsx';
 
 export const ItemsPreview = (props) => {
+    console.log(window.location.pathname);
     const [product] = props.menuItems.filter(menuItem => menuItem.routeName === props.route);
     console.log(product);
     return (
