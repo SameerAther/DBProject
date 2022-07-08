@@ -151,6 +151,35 @@ class App extends Component {
   }
 ///////////////////
 
+// / ADD TO CART
+  addToCart = async (obj) => {
+    if(!this.state.user.signedIn){
+      alert('please signin first!');
+
+      return;
+    }
+
+    const itemExist = this.#user.cart.length===0 ? undefined : this.#user.cart.find((item) => item.id === obj.id);
+
+    if(!itemExist){
+      this.#user.cart.push({...obj, quantity : 1});
+    }
+    else{
+      const index = this.#user.cart.findIndex((item) => item.id === obj.id);
+      this.#user.cart[index].quantity++;
+    }
+
+    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify(this.#user),
+    });
+
+    this.setState({user: this.#user, menuItems: this.#menuItems});
+  }
+
 componentDidMount(){
   const setInitialState = async () => {
       this.#menuItems = await this.fetchProducts();
@@ -168,7 +197,7 @@ componentDidMount(){
       <div className="App">
         <div className="sub">
 
-          <Header style={{transform: 'translateY(0)'}} signedIn={this.state.user.signedIn} />
+          <Header style={{transform: 'translateY(0)'}} user={this.state.user} />
 
           <Routes>
 
@@ -186,7 +215,8 @@ componentDidMount(){
             <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>} />
 
             <Route path="/products/:route" element={<ItemsPreview
-            menuItems={this.state.menuItems}/>}/>
+            menuItems={this.state.menuItems}
+            addToCart={this.addToCart}/>}/>
 
           </Routes>
           {/* <Routes>
