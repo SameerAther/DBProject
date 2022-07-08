@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import logo from '../assets/logo.svg';
 import { Button } from './Button.component.jsx';
-import { CartIcon } from './Cart.component.jsx';
+import { CartIcon } from './Cart-Icon.component.jsx';
+import { CartDropdown } from './Cart-Dropdown.component.jsx';
 
 export const Header = (props) => {
   const [string, setString] = useState('header header-home');

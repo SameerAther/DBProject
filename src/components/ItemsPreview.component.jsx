@@ -16,7 +16,8 @@ export const ItemsPreview = (props) => {
                     product.items.map((item)=> {
                         return(
                             <Items
-                            key={item.id} 
+                            key={item.id}
+                            id={item.id}
                             name={item.name}
                             price={item.price}
                             imageUrl={item.imageUrl}

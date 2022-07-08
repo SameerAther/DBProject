@@ -4,12 +4,6 @@ import { CgProfile } from 'react-icons/cg';
 
 import '../App.css';
 
-export const Cart = (props) => {
-    return (
-        <div></div>
-    );
-}
-
 export const CartIcon = (props) => {
     return (
         <>
@@ -22,6 +16,7 @@ export const CartIcon = (props) => {
             <CgProfile 
             title = "my profile"
             className = "show-profile"/>
+            <Cart/>
         </>
     );
 }
