@@ -3,7 +3,19 @@ import React from 'react';
 import '../App.css';
 import { Button } from '../components/Button.component.jsx';
 
+
+
 export const Items = (props) => {
+
+    const handleClick = () => {
+        props.addToCart({
+            id: props.id,
+            name: props.name,
+            imageUrl: props.imageUrl,
+            price: props.price,
+        });
+    }
+
     return (
         <div className='item'>
             <div className="item-image"
@@ -13,7 +25,7 @@ export const Items = (props) => {
                 class='add-to-cart-btn'
                 type='submit'
                 text={'add to cart'.toUpperCase()}
-                onSubmit={()=> console.log('added to cart')}
+                onSubmit={handleClick}
                 />
             <div className="item-footer">
                 <span className="item-name">{props.name}</span>

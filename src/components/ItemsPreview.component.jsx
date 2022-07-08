@@ -21,6 +21,7 @@ export const ItemsPreview = (props) => {
                             name={item.name}
                             price={item.price}
                             imageUrl={item.imageUrl}
+                            addToCart={props.addToCart}
                             />
                         )
                     })
