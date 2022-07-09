@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import {Routes, Route, Navigate } from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header.component.jsx';
 import { SignUp } from './pages/SignUp.jsx';
