@@ -43,7 +43,7 @@ export const Header = (props) => {
         </nav>
       </header>
       {
-        props.user.signedIn ? <CartDropdown user={props.user}/> : <></>
+        props.user.signedIn ? <CartDropdown user={props.user} deleteFromCart={props.deleteFromCart}/> : <></>
       }
     </>
   )
