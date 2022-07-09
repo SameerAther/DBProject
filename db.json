@@ -6,8 +6,23 @@
       "email": "nooralib180@gmail.com",
       "password": "noorali",
       "joined": "2022-07-07T14:33:51.340Z",
-      "signedIn": true,
-      "cart": []
+      "signedIn": false,
+      "cart": [
+        {
+          "id": 2,
+          "name": "Blue Beanie",
+          "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
+          "price": 18,
+          "quantity": 1
+        },
+        {
+          "id": 31,
+          "name": "Floral T-shirt",
+          "imageUrl": "https://i.ibb.co/qMQ75QZ/floral-shirt.png",
+          "price": 20,
+          "quantity": 2
+        }
+      ]
     }
   ],
   "menuItems": [
