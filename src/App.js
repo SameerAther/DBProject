@@ -180,6 +180,46 @@ class App extends Component {
     this.setState({user: this.#user, menuItems: this.#menuItems});
   }
 
+///////////////////
+
+// / DELETE FROM CART 
+  deleteFromCart = async (e) => {
+    const id = +e.target.closest('.cart-item-detail').id;
+    const itemIndex = this.#user.cart.findIndex((item) => item.id === id);
+
+    this.#user.cart.splice(itemIndex, 1);
+
+    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify(this.#user),
+    });
+
+    this.setState({user: this.#user, menuItems: this.#menuItems});
+  }
+
+  ////////////////////
+
+  // / LOGOUT 
+  logOut = async () => {
+    this.#user.signedIn = false;
+
+    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify(this.#user),
+    });
+
+    this.#user = {};
+
+    this.setState({user: this.#user, menuItems: this.#menuItems});
+
+  }
+
 componentDidMount(){
   const setInitialState = async () => {
       this.#menuItems = await this.fetchProducts();
@@ -197,7 +237,8 @@ componentDidMount(){
       <div className="App">
         <div className="sub">
 
-          <Header style={{transform: 'translateY(0)'}} user={this.state.user} />
+          <Header style={{transform: 'translateY(0)'}} user={this.state.user} deleteFromCart={this.deleteFromCart}
+          logOut={this.logOut}/>
 
           <Routes>
 

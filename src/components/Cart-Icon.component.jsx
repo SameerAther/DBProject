@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsCart4 } from 'react-icons/bs';
 import { CgProfile } from 'react-icons/cg';
+import { AiOutlineLogout } from 'react-icons/ai';
 
 import '../App.css';
 
@@ -21,8 +22,13 @@ export const CartIcon = (props) => {
                 <div className="cart-items-count">{count}</div>
             </div>
             <CgProfile 
-            title = "my profile"
+            title = {props.user.name.toUpperCase() + '\n' + props.user.email }
             className = "show-profile"/>
+            <AiOutlineLogout 
+            title = {'Sign Out'}
+            className = "logout-btn"
+            onClick = {props.logOut}/>
+
         </>
     );
 }

@@ -123,6 +123,17 @@
   opacity: 0.8;
 }
 
+.logout-btn{
+  font-size: 28px;
+  color: #e71d36;
+  cursor: pointer;
+  margin-left: 25px;
+  transition: opacity .25s ease;
+}
+.logout-btn:hover{
+  opacity: 0.8;
+}
+
 /*  */
 
 /* Particles Component */
@@ -635,6 +646,7 @@ a{
   margin: 10px 0;
   width: 100%;
   border: 1px solid grey;
+  align-items: center;
 }
 
 .cart-item-detail img {
@@ -652,6 +664,13 @@ a{
 
 .cart-item-detail .name{
   font-size: 16px;
+}
+
+.delete-from-cart-btn{
+  margin-left: 25px;
+  font-size: 25px;
+  cursor: pointer;
+  color: inherit;
 }
 
 

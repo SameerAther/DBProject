@@ -34,7 +34,7 @@ export const Header = (props) => {
             </li>
           </ul>
           {
-            props.user.signedIn ? <CartIcon user={props.user}/> : <Link to="/signin">
+            props.user.signedIn ? <CartIcon user={props.user} logOut={props.logOut}/> : <Link to="/signin">
               <Button
                 class="btn-header"
                 text="SIGN IN"/>
@@ -43,7 +43,7 @@ export const Header = (props) => {
         </nav>
       </header>
       {
-        props.user.signedIn ? <CartDropdown user={props.user}/> : <></>
+        props.user.signedIn ? <CartDropdown user={props.user} deleteFromCart={props.deleteFromCart}/> : <></>
       }
     </>
   )
