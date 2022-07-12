@@ -34,7 +34,6 @@ export class SignUp extends React.Component {
   submit = (e) => {
       e.preventDefault();
       this.props.onSubmit(this.state.name, this.state.email, this.state.password);
-      
       this.setState({name: '', email: '', password: ''});
   }
 

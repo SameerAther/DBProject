@@ -7,9 +7,9 @@ export const MenuDirectory = (props) => {
     return(
         <div className="products">
             <h1 className="products-heading">{'Products'}</h1>
-            <div className="directory-menu">
+            <div className="directory-menu">{ console.log(props)}
                 {
-                    props.menuItems.map((menuItem)=> {
+                    props.shopcategory?.map((menuItem)=> {
                         return(
                             <MenuItem 
                             key={menuItem.id} 
@@ -17,6 +17,7 @@ export const MenuDirectory = (props) => {
                             imgUrl={menuItem.imageUrl}
                             size={menuItem.size}
                             route={menuItem.routeName}
+                            menuItems = {props.menuItems} 
                             />
                         )
                     })

@@ -7,6 +7,8 @@ import { SignIn } from './pages/SignIn.jsx';
 import { Homepage } from './pages/Home.jsx';
 import { Products } from './pages/Products.jsx';
 import { ItemsPreview } from './components/ItemsPreview.component.jsx';
+import {CheckoutPage} from './pages/Checkout';
+import { PaymentPage } from './pages/Payment.jsx';
 
 import './App.css';
 
@@ -15,6 +17,7 @@ import './App.css';
 class App extends Component {
   #menuItems = {};
   #user = {};
+  #shopcategory = {};
 
   constructor(){
     super();
@@ -22,6 +25,8 @@ class App extends Component {
     this.state = {
       "user": this.#user,
       "menuItems" : this.#menuItems,
+      "shopcategory": this.#shopcategory,
+      "total": 0
     }
   }
  
@@ -53,19 +58,19 @@ class App extends Component {
       alert("user not found try again.");
       return;
     }
-
-    let user = {...userFound, signedIn: true};
+    let cart = JSON.parse(userFound.cart)
+    let user = {...userFound,cart, signedIn: true};
 
     this.#user = user;
     this.setState({user: this.#user, menuItems: this.#menuItems});
 
-    await fetch(`http://localhost:5000/users/${user.id}`,{
-      method: 'PUT',
+    await fetch(`http://localhost:4000/userinformation/${user.id}`,{
+      method: 'GET',
       headers: {
         'Content-Type' : 'application/json'
-      },
-      body: JSON.stringify(user),
+      }
     });
+    console.log(user)
     const header = document.querySelector('.header');
     header === undefined ? console.log('bad') : header.style.transform = 'translateY(0%)';
   }
@@ -111,14 +116,14 @@ class App extends Component {
       password: password,
       joined: new Date().toISOString(),
       signedIn: true,
-      cart: []
+      cart: [],
     }
 
     this.#user = user;
 
     this.setState({user: this.#user, menuItems: this.#menuItems});
 
-    await fetch('http://localhost:5000/users',{
+    await fetch('http://localhost:5000/register',{
       method: 'POST',
       headers: {
         'content-type' : 'application/json',
@@ -131,22 +136,39 @@ class App extends Component {
 
   }
   
+  onUpdateCart = async (obj) => {
+    console.log(obj.cart)
+    fetch('http://localhost:5000/updateCart', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        cart: obj.cart,
+        id: obj.id
+      })
+    })
+      .then(response => response.json())
+  }
+
   ////////////////////////
 
   // / FETCH FUNCTIONALITY
   fetchUsers = async () => {
-    const res = await fetch('http://localhost:5000/users');
+    const res = await fetch('http://localhost:5000/userinformation');
     const data = await res.json();
-
     return data;
   }
   ////////////////////////
 
   // / FETCH PRODUCTS
   fetchProducts = async () => {
-    const res = await fetch('http://localhost:5000/menuItems');
+    const res = await fetch('http://localhost:5000/menuitems');
     const data = await res.json();
+    return data;
+  }
 
+  fetchShopCategory = async () => {
+    const res = await fetch('http://localhost:5000/shopcategory');
+    const data = await res.json();
     return data;
   }
 ///////////////////
@@ -169,18 +191,31 @@ class App extends Component {
       this.#user.cart[index].quantity++;
     }
 
-    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
-      method: 'PUT',
+    await fetch(`http://localhost:4000/userinformation/${this.#user.id}`,{
+      method: 'GET',
       headers: {
         'Content-Type' : 'application/json'
       },
-      body: JSON.stringify(this.#user),
     });
 
     this.setState({user: this.#user, menuItems: this.#menuItems});
+    console.log(this.#user.cart)
+    this.findTotal(this.#user.cart);
   }
 
 ///////////////////
+
+  findTotal(item){
+    let total = 0;
+    let j;
+    for(let i =0;i < item.length;i++){
+      console.log(item[i].id)
+      j = item[i].price * item[i].quantity;
+      total = total + j;
+    }
+    this.setState({total: total});
+    console.log(total);
+  }
 
 // / DELETE FROM CART 
   deleteFromCart = async (e) => {
@@ -189,15 +224,16 @@ class App extends Component {
 
     this.#user.cart.splice(itemIndex, 1);
 
-    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
-      method: 'PUT',
+    await fetch(`http://localhost:5000/userinformation/${this.#user.id}`,{
+      method: 'GET',
       headers: {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify(this.#user),
     });
-
+    console.log(this.#user)
     this.setState({user: this.#user, menuItems: this.#menuItems});
+    this.findTotal(this.#user.cart)
   }
 
   ////////////////////
@@ -206,28 +242,23 @@ class App extends Component {
   logOut = async () => {
     this.#user.signedIn = false;
 
-    await fetch(`http://localhost:5000/users/${this.#user.id}`,{
-      method: 'PUT',
+    await fetch(`http://localhost:5000/userinformation/${this.#user.id}`,{
+      method: 'GET',
       headers: {
         'Content-Type' : 'application/json'
       },
-      body: JSON.stringify(this.#user),
     });
-
     this.#user = {};
-
     this.setState({user: this.#user, menuItems: this.#menuItems});
-
   }
 
 componentDidMount(){
   const setInitialState = async () => {
       this.#menuItems = await this.fetchProducts();
-
-      this.setState({user: this.#user, menuItems: this.#menuItems});
+      this.#shopcategory = await this.fetchShopCategory();
+      this.setState({user: this.#user, menuItems: this.#menuItems, shopcategory: this.#shopcategory});
   }
   setInitialState();
-
 }
 
 //
@@ -246,25 +277,25 @@ componentDidMount(){
             user={this.state.user}/>}/>
 
             <Route path="/signin" element={<SignIn 
-            onSubmit = {this.onSubmitSignIn} 
+            onSubmit = {this.onSubmitSignIn}
             user={this.state.user}/>}/>
 
             <Route path ="/signup" element={<SignUp 
-            onSubmit = {this.onSubmitSignUp} 
+            onSubmit = {this.onSubmitSignUp}
             user={this.state.user}/>}/>
 
-            <Route path="/products" element={<Products menuItems = {this.state.menuItems}/>} />
+            <Route path="/products" element={<Products menuItems = {this.state.menuItems} shopcategory={this.state.shopcategory}/>} />
 
             <Route path="/products/:route" element={<ItemsPreview
             menuItems={this.state.menuItems}
+            shopcategory={this.state.shopcategory}
             addToCart={this.addToCart}/>}/>
 
+            <Route path='/checkout' element={<CheckoutPage user={this.state.user} 
+            deleteFromCart={this.deleteFromCart} total={this.state.total} onUpdateCart={this.onUpdateCart}/>}/>
+
+            <Route path='/payment' element={<PaymentPage user={this.state.user} total={this.state.total}/>}/>
           </Routes>
-          {/* <Routes>
-            <Route exact path='/' element={<Homepage user={this.state.user}/>}/>
-            <Route path='/signin' element={<SignIn/>}/>
-            <Route path='/signup' element={<SignUp/>} />
-          </Routes> */}
         </div>
 
       </div>

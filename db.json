@@ -6,20 +6,27 @@
       "email": "nooralib180@gmail.com",
       "password": "noorali",
       "joined": "2022-07-07T14:33:51.340Z",
-      "signedIn": false,
+      "signedIn": true,
       "cart": [
         {
-          "id": 2,
-          "name": "Blue Beanie",
-          "imageUrl": "https://i.ibb.co/ypkgK0X/blue-beanie.png",
-          "price": 18,
-          "quantity": 1
+          "id": 12,
+          "name": "Black Converse",
+          "imageUrl": "https://i.ibb.co/bPmVXyP/black-converse.png",
+          "price": 110,
+          "quantity": 2
         },
         {
-          "id": 31,
-          "name": "Floral T-shirt",
-          "imageUrl": "https://i.ibb.co/qMQ75QZ/floral-shirt.png",
-          "price": 20,
+          "id": 10,
+          "name": "Adidas NMD",
+          "imageUrl": "https://i.ibb.co/0s3pdnc/adidas-nmd.png",
+          "price": 220,
+          "quantity": 2
+        },
+        {
+          "id": 11,
+          "name": "Adidas Yeezy",
+          "imageUrl": "https://i.ibb.co/dJbG1cT/yeezy.png",
+          "price": 280,
           "quantity": 2
         }
       ]

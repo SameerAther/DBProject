@@ -28,7 +28,6 @@ export const CartIcon = (props) => {
             title = {'Sign Out'}
             className = "logout-btn"
             onClick = {props.logOut}/>
-
         </>
     );
 }

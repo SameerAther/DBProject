@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../App.css';
 
-
-
 export const MenuItem = (props) => {
-
     return (
         <Link to={`/products/${props.route}`}
         className={`menu-item ${props.size ? props.size : ""}`}>

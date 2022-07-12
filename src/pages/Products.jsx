@@ -1,8 +1,8 @@
 import React from 'react';
-import {Routes, Route, Navigate, Link} from 'react-router-dom';
+// import {Routes, Route, Navigate, Link} from 'react-router-dom';
 
 import '../App.css';
-import { Header } from '../components/Header.component.jsx';
+// import { Header } from '../components/Header.component.jsx';
 import { MenuDirectory } from '../components/MenuDirectory.component.jsx';
 
 export const Products = (props) => {
@@ -10,6 +10,7 @@ export const Products = (props) => {
         <div className="products-page">
             {/* <Header signedIn={this.props.user.signedIn}/> */}
             <MenuDirectory 
+            shopcategory = {props.shopcategory}
             menuItems = {props.menuItems} 
             handleClick={props.handleClick}
             />

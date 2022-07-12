@@ -6,14 +6,29 @@ import { Items } from '../components/Items.component.jsx';
 export const ItemsPreview = (props) => {
     const pathname = window.location.pathname;
     const route = pathname.substring(pathname.lastIndexOf('/') + 1);
-    const [product] = props.menuItems.filter(menuItem => menuItem.routeName === route);
+    let product;
+    if(route==='hats'){
+        product = props.menuItems.slice(0, 9);
+    }
+    else if(route === 'sneakers'){
+        product = props.menuItems.slice(10, 17)
+    }
+    else if(route === 'jackets'){
+        product = props.menuItems.slice(18, 22)
+    }
+    else if(route === 'womens'){
+        product = props.menuItems.slice(23, 29)
+    }
+    else if(route === 'mens'){
+        product = props.menuItems.slice(30, 35)
+    }
 
     return (
         <div className="items-preview">
-            <h1 className="items-preview-heading">{product.title}</h1>
+            <h1 className="items-preview-heading">{route.toUpperCase()}</h1>
             <div className="items">
                 {
-                    product.items.map((item)=> {
+                    product.map((item) => {
                         return(
                             <Items
                             key={item.id}

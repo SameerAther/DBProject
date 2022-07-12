@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoClose } from 'react-icons/io5';
+import {Link} from 'react-router-dom';
 
 import '../App.css';
 import { Button } from './Button.component';
@@ -20,17 +21,17 @@ export const CartDropdown = (props) => {
                                         <span className="name">{item.name}</span>
                                         <span className="price">{item.quantity} X ${item.price}</span>
                                     </div>
-                                    <IoClose className="delete-from-cart-btn" title='delete item'
+                                    <IoClose className="delete-from-cart-btn-checkout" title='delete item'
                                     onClick={props.deleteFromCart}/>
                                 </div> 
                             )
                         })
                     }
             </div>
-            <Button 
+            <Link to='/checkout'><Button 
                 class="checkout-btn"
                 text="GO TO CHECKOUT"
-            />
+            /></Link>
         </div>
     );
 }
