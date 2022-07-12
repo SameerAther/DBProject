@@ -12,8 +12,6 @@ import { PaymentPage } from './pages/Payment.jsx';
 
 import './App.css';
 
-// const pathname = window.location.pathname
-
 class App extends Component {
   #menuItems = {};
   #user = {};
@@ -33,15 +31,6 @@ class App extends Component {
   onInputChange = (event) => {
     this.setState({input: event.target.value})
   }
-
-  // onRouteChange = (route) => {
-  //   if (route === 'signout'){
-  //     this.setState(initialState)
-  //   } else if (route === 'home'){
-  //     this.setState({isSignedIn: true})
-  //   }
-  //   this.setState({route: route})
-  // } 
 
   // / SIGN IN 
   onSubmitSignIn = async (emailC, passwordC) => {

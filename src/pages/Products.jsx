@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Routes, Route, Navigate, Link} from 'react-router-dom';
 
 import '../App.css';
 // import { Header } from '../components/Header.component.jsx';

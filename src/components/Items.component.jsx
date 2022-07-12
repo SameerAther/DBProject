@@ -3,8 +3,6 @@ import React from 'react';
 import '../App.css';
 import { Button } from '../components/Button.component.jsx';
 
-
-
 export const Items = (props) => {
 
     const handleClick = () => {
@@ -15,7 +13,6 @@ export const Items = (props) => {
             price: props.price,
         });
     }
-
     return (
         <div className='item'>
             <div className="item-image"

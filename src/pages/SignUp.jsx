@@ -3,8 +3,6 @@ import {Link, Navigate} from 'react-router-dom'
 
 import '../App.css';
 import logo from '../assets/logo.svg';
-
-import { ParticlesContainer } from '../components/Particles.component.jsx';
 import { Input } from '../components/Input.componenet.jsx';
 import { Button } from '../components/Button.component.jsx';
 
@@ -40,7 +38,6 @@ export class SignUp extends React.Component {
 render(){
     return(
       <div>
-        {/* <ParticlesContainer/> */}
         <div className="form-container">
           <Link to='/' replace>
             <img src={logo} alt='logo' className='signin-logo' 

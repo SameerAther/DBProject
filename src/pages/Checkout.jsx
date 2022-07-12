@@ -3,7 +3,6 @@ import { IoClose } from 'react-icons/io5';
 import {Link} from 'react-router-dom';
 
 import {Button} from '../components/Button.component'
-import {StripeCheckoutButton} from '../components/StripeButton.component';
 import '../App.css';
 
 export const CheckoutPage = (props) => {

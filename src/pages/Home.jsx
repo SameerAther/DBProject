@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 import '../App.css';
 
-import { Button } from '../components/Button.component';
-import { Header } from '../components/Header.component.jsx';
-
-
 export const Homepage = (props) => {
   
   return (

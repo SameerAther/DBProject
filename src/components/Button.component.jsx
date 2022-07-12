@@ -2,8 +2,6 @@ import React from 'react';
 
 import '../App.css';
 
-
-
 export const Button = (props) => {
 
     return (
